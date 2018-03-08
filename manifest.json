@@ -1,0 +1,16 @@
+{
+    "manifest_version": 2,
+    "name": "Gofuku",
+    "version": "0.1",
+    "description": "my first addon",
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.mozilla.org/*"
+            ],
+            "js": [
+                "borderify.js"
+            ]
+        }
+    ]
+}
