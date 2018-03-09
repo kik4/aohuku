@@ -1,0 +1,26 @@
+{
+  "name": "aohuku",
+  "version": "1.0.0",
+  "description": "my first broswer addon",
+  "main": "main.js",
+  "devDependencies": {
+    "npm": "^5.7.1",
+    "ts-loader": "^4.0.1",
+    "typescript": "^2.7.2",
+    "web-ext": "^2.4.0",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.10"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "webpack -d",
+    "watch": "webpack -w",
+    "prod": "webpack -p",
+    "start": "web-ext run"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.0",
+    "vue": "^2.5.13",
+    "vue-class-component": "^6.2.0"
+  }
+}

@@ -9,7 +9,10 @@
                 "*://*.mozilla.org/*"
             ],
             "js": [
-                "borderify.js"
+                "dist/main.js"
+            ],
+            "css": [
+                "css/normalize.css"
             ]
         }
     ]
