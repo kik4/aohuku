@@ -6,6 +6,8 @@
   "devDependencies": {
     "npm": "^5.7.1",
     "ts-loader": "^4.0.1",
+    "tslint": "^5.9.1",
+    "tslint-config-airbnb": "^5.7.0",
     "typescript": "^2.7.2",
     "web-ext": "^2.4.0",
     "webpack": "^4.1.1",
@@ -16,7 +18,8 @@
     "build": "webpack -d",
     "watch": "webpack -w",
     "prod": "webpack -p",
-    "start": "web-ext run"
+    "start": "web-ext run",
+    "lint": "tslint --fix './*.ts'"
   },
   "dependencies": {
     "normalize.css": "^8.0.0",
