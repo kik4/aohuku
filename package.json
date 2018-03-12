@@ -4,6 +4,8 @@
   "description": "my first broswer addon",
   "main": "main.js",
   "devDependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.0",
     "npm": "^5.7.1",
     "prettier": "^1.11.1",
     "ts-loader": "^4.0.1",
@@ -22,7 +24,14 @@
     "watch": "webpack -w",
     "prod": "webpack -p",
     "start": "web-ext run",
-    "tslint": "tslint --fix './src/*.ts'"
+    "tslint": "tslint --fix './src/*.ts'",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "tslint --fix",
+      "git add"
+    ]
   },
   "dependencies": {
     "normalize.css": "^8.0.0",
