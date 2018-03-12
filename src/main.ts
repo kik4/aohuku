@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import vue from "vue";
 
 // reset contents
 document.head.innerHTML = `
@@ -12,14 +12,17 @@ document.body.innerHTML = `
 </div>
 `;
 
-var app5 = new Vue({
-    el: '#app-5',
-    data: {
-        message: 'Hello Vue.js!'
-    },
-    methods: {
-        reverseMessage: function () {
-            this.message = this.message.split('').reverse().join('')
-        }
+const app5 = new vue({
+  el: "#app-5",
+  data: {
+    message: "Hello Vue.js!"
+  },
+  methods: {
+    reverseMessage() {
+      this.message = this.message
+        .split("")
+        .reverse()
+        .join("");
     }
-})
+  }
+});
