@@ -9,6 +9,7 @@
             true,
             120
         ],
+        "import-name": false,
         "prettier": [
             true,
             {

@@ -1,4 +1,4 @@
-import vue from 'vue';
+import Vue from 'vue';
 
 // reset contents
 document.head.innerHTML = `
@@ -12,7 +12,11 @@ document.body.innerHTML = `
 </div>
 `;
 
-const app5 = new vue({
+for (let i = document.body.attributes.length - 1; i >= 0; i -= 1) {
+  document.body.removeAttribute(document.body.attributes[i].name);
+}
+
+const app5 = new Vue({
   el: '#app-5',
   data: {
     message: 'Hello Vue.js!'
@@ -26,3 +30,13 @@ const app5 = new vue({
     }
   }
 });
+
+const url = location.href;
+
+fetch(url, {})
+  .then(response => {
+    return response.text();
+  })
+  .then(text => {
+    console.log(text);
+  });

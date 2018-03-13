@@ -6,7 +6,7 @@
     "content_scripts": [
         {
             "matches": [
-                "*://*.mozilla.org/*"
+                "*://*.2chan.net/*"
             ],
             "js": [
                 "dist/main.js"
