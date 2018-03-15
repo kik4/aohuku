@@ -1,5 +1,21 @@
 import Vue from 'vue';
 
+class Thread {
+  private id: string;
+  constructor(id: string) {
+    this.id = id;
+  }
+}
+
+const elementList = document
+  .querySelectorAll('table')[1]
+  .querySelectorAll('td');
+const arr: Thread[] = [];
+Array.prototype.forEach.call(elementList, (e: Element) => {
+  arr.push(new Thread(e.firstElementChild!.getAttribute('href') || ''));
+});
+console.log(arr);
+
 // reset contents
 document.head.innerHTML = `
 <meta charset="utf-8">
@@ -31,12 +47,12 @@ const app5 = new Vue({
   }
 });
 
-const url = location.href;
+// const url = location.href;
 
-fetch(url, {})
-  .then(response => {
-    return response.text();
-  })
-  .then(text => {
-    console.log(text);
-  });
+// fetch(url, {})
+//   .then(response => {
+//     return response.text();
+//   })
+//   .then(text => {
+//     console.log(text);
+//   });
