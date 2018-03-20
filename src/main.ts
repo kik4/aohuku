@@ -7,11 +7,14 @@ document.head.innerHTML = `
 <title>テストタイトル</title>
 `;
 document.body.innerHTML = `
-<ul id="app">
-  <li v-for="thread in threads">
-    {{ thread.id }}
-  </li>
-</ul>
+<div id="app">
+  <p>{{ threads.length }}</p>
+  <ul>
+    <li v-for="thread in threads">
+      {{ thread.id }}
+    </li>
+  </ul>
+</div>
 `;
 // remove attributes
 for (let i = document.body.attributes.length - 1; i >= 0; i -= 1) {
@@ -36,8 +39,9 @@ const app = new Vue({
 });
 
 const url = 'https://may.2chan.net/27/futaba.php?mode=cat';
+document.cookie = 'cxyl=200x1x4';
 
-fetch(url, {})
+fetch(url, { credentials: 'same-origin' })
   .then(response => {
     return response.text();
   })
