@@ -14,6 +14,8 @@
     "tslint-config-prettier": "^1.9.0",
     "tslint-plugin-prettier": "^1.3.0",
     "typescript": "^2.7.2",
+    "vue-loader": "^14.2.1",
+    "vue-template-compiler": "^2.5.16",
     "web-ext": "^2.4.0",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.10"
@@ -24,7 +26,7 @@
     "watch": "webpack -w",
     "prod": "webpack -p",
     "start": "web-ext run",
-    "tslint": "tslint --fix './src/*.ts'",
+    "tslint": "tslint --fix './src/**/*.ts'",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -34,8 +36,9 @@
     ]
   },
   "dependencies": {
+    "element-ui": "^2.2.2",
     "normalize.css": "^8.0.0",
-    "vue": "^2.5.13",
+    "vue": "^2.5.16",
     "vue-class-component": "^6.2.0"
   }
 }
