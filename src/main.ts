@@ -1,20 +1,5 @@
 import Vue from 'vue';
-
-class Thread {
-  private id: string;
-  constructor(id: string) {
-    this.id = id;
-  }
-}
-
-const elementList = document
-  .querySelectorAll('table')[1]
-  .querySelectorAll('td');
-const arr: Thread[] = [];
-Array.prototype.forEach.call(elementList, (e: Element) => {
-  arr.push(new Thread(e.firstElementChild!.getAttribute('href') || ''));
-});
-console.log(arr);
+import { Thread } from './models/Thread';
 
 // reset contents
 document.head.innerHTML = `
@@ -22,37 +7,47 @@ document.head.innerHTML = `
 <title>テストタイトル</title>
 `;
 document.body.innerHTML = `
-<div id="app-5">
-  <p>{{ message }}</p>
-  <button v-on:click="reverseMessage">Reverse Message</button>
-</div>
+<ul id="app">
+  <li v-for="thread in threads">
+    {{ thread.id }}
+  </li>
+</ul>
 `;
-
+// remove attributes
 for (let i = document.body.attributes.length - 1; i >= 0; i -= 1) {
   document.body.removeAttribute(document.body.attributes[i].name);
 }
 
-const app5 = new Vue({
-  el: '#app-5',
-  data: {
-    message: 'Hello Vue.js!'
-  },
+class State {
+  public threads: Thread[];
+  constructor() {
+    this.threads = [];
+  }
+}
+
+const app = new Vue({
+  el: '#app',
+  data: new State(),
   methods: {
-    reverseMessage() {
-      this.message = this.message
-        .split('')
-        .reverse()
-        .join('');
+    setThreads(list: Thread[]) {
+      this.threads = list;
     }
   }
 });
 
-// const url = location.href;
+const url = 'https://may.2chan.net/27/futaba.php?mode=cat';
 
-// fetch(url, {})
-//   .then(response => {
-//     return response.text();
-//   })
-//   .then(text => {
-//     console.log(text);
-//   });
+fetch(url, {})
+  .then(response => {
+    return response.text();
+  })
+  .then(text => {
+    const div = document.createElement('div');
+    div.innerHTML = text;
+    const elementList = div.querySelectorAll('table')[1].querySelectorAll('td');
+    const arr: Thread[] = [];
+    Array.prototype.forEach.call(elementList, (e: Element) => {
+      arr.push(new Thread(e.firstElementChild!.getAttribute('href') || ''));
+    });
+    app.threads = arr;
+  });
