@@ -2,7 +2,7 @@
 const isProd = process.env.NODE_ENV === 'production'
 
 // debugビルドかどうかnpm scriptの引数で判定
-const DEBUG = process.argv.includes('-d')
+const DEBUG = !process.argv.includes('-p')
 console.log('DEBUG=' + DEBUG)
 
 module.exports = {
